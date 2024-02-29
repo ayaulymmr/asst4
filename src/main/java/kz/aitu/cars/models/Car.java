@@ -17,7 +17,7 @@ public class Car {
 
     private String model;
 
-    private String complication;
+    private String equipment;
 
     private double price;
 

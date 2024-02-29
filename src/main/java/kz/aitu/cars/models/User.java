@@ -21,6 +21,8 @@ public class User {
     private String surname;
 
     private double wealth;
+    private double countofcars;
+    private double car;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Car> cars = new ArrayList<>();

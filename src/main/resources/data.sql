@@ -1,16 +1,38 @@
-CREATE TABLE IF NOT EXISTS users (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    surname VARCHAR(255) NOT NULL,
-    wealth DOUBLE PRECISION NOT NULL
-);
+CREATE TABLE users(
+    id serial PRIMARY KEY,
+    name character varying,
+    surname character varying,
+    wealth decimal,
+	countofcars numeric,
+    cars text ARRAY
+)
 
-CREATE TABLE IF NOT EXISTS cars (
-    id SERIAL PRIMARY KEY,
-    brand VARCHAR(255) NOT NULL,
-    model VARCHAR(255) NOT NULL,
-    complication VARCHAR(255) NOT NULL,
-    price DOUBLE PRECISION NOT NULL,
-    user_id BIGINT,
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.users
+    OWNER to postgres;
+
+CREATE TABLE cars
+(
+    brand character varying,
+    model character varying,
+    price decimal,
+    equipment character varying
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.cars
+    OWNER to postgres;
+CREATE TABLE sold_cars
+(
+	id serial PRIMARY KEY,
+    name character varying,
+    surname character varying,
+    sold_cars numeric
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.sold_cars
+    OWNER to postgres;
